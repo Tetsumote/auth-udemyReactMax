@@ -1,10 +1,26 @@
-import "./styles.css";
+import { Switch, Route } from "react-router-dom";
 
-export default function App() {
+import Layout from "./components/Layout/Layout";
+import UserProfile from "./components/Profile/UserProfile";
+import AuthPage from "./pages/AuthPage";
+import HomePage from "./pages/HomePage";
+
+function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <Layout>
+      <Switch>
+        <Route path="/" exact>
+          <HomePage />
+        </Route>
+        <Route path="/auth">
+          <AuthPage />
+        </Route>
+        <Route path="/profile">
+          <UserProfile />
+        </Route>
+      </Switch>
+    </Layout>
   );
 }
+
+export default App;
